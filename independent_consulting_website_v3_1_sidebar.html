@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="YOUR NAME — Independent Strategy & Operations. A one-person practice across strategy, operations, data and AI.">
+<title>YOUR NAME — One-person practice</title>
+<style>
+:root{
+  --bg:#f7f6f2; --paper:#fff; --ink:#20201e; --muted:#77746d;
+  --line:#dedbd3; --accent:#315c54; --soft:#e8eee9; --warm:#eee8df;
+  --max:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC",
+  "Hiragino Sans","Microsoft JhengHei",Arial,sans-serif;
+  line-height:1.75;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:auto;padding:0 30px}
+nav{
+  position:sticky;top:0;z-index:10;
+  background:rgba(247,246,242,.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(222,219,211,.8)
+}
+.nav{height:68px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-size:14px;font-weight:750;letter-spacing:-.025em}
+.brand span{color:var(--accent);font-weight:600}
+.navlinks{display:flex;align-items:center;gap:22px;font-size:13px;color:var(--muted)}
+.navlinks a:hover{color:var(--ink)}
+.lang{border-left:1px solid var(--line);padding-left:20px}
+.lang button{
+  border:0;background:none;padding:0;font:inherit;color:var(--muted);
+  cursor:pointer
+}
+.lang button.active{color:var(--ink);font-weight:800}
+
+.hero{padding:92px 0 82px;max-width:900px}
+.eyebrow{font-size:12px;letter-spacing:.08em;color:var(--accent);font-weight:800;margin-bottom:22px}
+h1{
+  font-size:clamp(44px,5.2vw,64px);
+  line-height:1.08;letter-spacing:-.055em;font-weight:720;
+  max-width:850px;margin:0 0 26px
+}
+.hero p{font-size:18px;color:var(--muted);max-width:690px;margin:0 0 30px}
+.buttons{display:flex;gap:10px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;padding:10px 16px;
+  border:1px solid var(--ink);border-radius:8px;font-size:13px;font-weight:750
+}
+.btn.primary{background:var(--ink);color:#fff}
+.btn.secondary{background:transparent;border-color:var(--line)}
+
+.introline{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:17px 0;font-size:12px;color:var(--muted)}
+.introline strong{color:var(--ink);font-weight:750}
+
+section{padding:82px 0;border-bottom:1px solid var(--line)}
+.kicker{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:850;color:var(--accent)}
+.sectionhead{display:grid;grid-template-columns:1fr .75fr;gap:60px;align-items:end;margin-bottom:38px}
+h2{font-size:40px;line-height:1.12;letter-spacing:-.045em;font-weight:700;margin:7px 0 0}
+.sectionhead p{margin:0;color:var(--muted);font-size:15px}
+
+.services{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.service{background:var(--paper);padding:28px;min-height:235px}
+.service-num{font-size:11px;color:var(--muted)}
+.service h3{font-size:22px;line-height:1.25;margin:28px 0 9px;letter-spacing:-.03em}
+.service p{font-size:14px;color:var(--muted);margin:0}
+.service .result{margin-top:20px;font-size:12px;color:var(--accent);font-weight:800}
+
+.about{display:grid;grid-template-columns:.7fr 1.3fr;gap:70px}
+.aboutmark{font-size:110px;line-height:.8;color:var(--accent);font-weight:800;letter-spacing:-.1em}
+.aboutcopy{font-size:17px}
+.aboutcopy p{margin-top:0}
+.note{
+  background:var(--warm);padding:21px 23px;margin-top:25px;
+  border-left:2px solid var(--accent);font-size:14px
+}
+.note strong{display:block;margin-bottom:5px}
+.pills{display:flex;gap:7px;flex-wrap:wrap;margin-top:24px}
+.pill{padding:5px 9px;border:1px solid var(--line);border-radius:99px;background:#fff;font-size:11px;color:var(--muted)}
+
+.experience{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.exp{border:1px solid var(--line);background:#fff;padding:22px}
+.exp .label{font-size:11px;color:var(--accent);font-weight:850;letter-spacing:.08em}
+.exp h3{font-size:19px;margin:15px 0 8px}
+.exp p{font-size:13px;color:var(--muted);margin:0}
+
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.step{border-top:1px solid var(--ink);padding-top:18px}
+.step b{font-size:11px;color:var(--accent)}
+.step h3{font-size:18px;margin:10px 0 6px}
+.step p{font-size:13px;color:var(--muted);margin:0}
+
+.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.note-card{background:#fff;border:1px solid var(--line);padding:24px;min-height:235px}
+.note-card .type{font-size:10px;letter-spacing:.1em;color:var(--accent);font-weight:850}
+.note-card h3{font-size:19px;line-height:1.3;margin:18px 0 9px}
+.note-card p{font-size:13px;color:var(--muted);margin:0}
+.note-card .arrow{margin-top:24px;font-size:12px;font-weight:800}
+
+.cta{background:var(--ink);color:#fff;border-bottom:0}
+.cta .kicker{color:#a9c0b9}
+.cta h2{font-size:42px;max-width:650px}
+.cta p{color:#c8c8c2;max-width:620px;font-size:16px}
+.cta .btn{background:#fff;color:var(--ink);border-color:#fff;margin-top:8px}
+
+footer{padding:25px 0 40px;font-size:11px;color:var(--muted)}
+.footer{display:flex;justify-content:space-between;gap:20px}
+
+[data-lang="en"]{display:none}
+
+body.en [data-lang="zh"]{display:none}
+body.en [data-lang="en"]{display:block}
+body.en span[data-lang="en"],body.en a[data-lang="en"],body.en button[data-lang="en"]{display:inline}
+body.en .lang span[data-lang="en"]{display:inline}
+body.en .lang span[data-lang="zh"]{display:none}
+
+
+
+@media(min-width:1300px){
+  .wrap{max-width:1060px}
+}
+
+@media(max-width:1100px){
+  .sidebar-index{display:none}
+}
+
+@media(max-width:800px){
+  .wrap{padding:0 22px}
+  .navlinks>a{display:none}
+  .hero{padding:70px 0}
+  .sectionhead{display:block}
+  .sectionhead p{margin-top:17px}
+  .services,.about,.experience,.notes{grid-template-columns:1fr}
+  .process{grid-template-columns:1fr 1fr}
+  h2{font-size:34px}
+}
+@media(max-width:520px){
+  .process{grid-template-columns:1fr}
+  h1{font-size:43px}
+  .hero p{font-size:17px}
+}
+
+.sidebar-index{
+  position:fixed;left:28px;top:50%;transform:translateY(-50%);
+  width:132px;z-index:15;font-size:11px;color:var(--muted);
+}
+.sidebar-index .index-title{
+  font-size:9px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:14px;font-weight:850;
+}
+.sidebar-index a{
+  display:flex;align-items:center;gap:9px;padding:5px 0;
+  color:var(--muted);transition:.18s;
+}
+.sidebar-index a::before{
+  content:"";width:4px;height:4px;border-radius:50%;
+  background:var(--line);transition:.18s;flex:none;
+}
+.sidebar-index a:hover{color:var(--ink)}
+.sidebar-index a.active{color:var(--ink);font-weight:800}
+.sidebar-index a.active::before{background:var(--accent);width:5px;height:5px}
+.sidebar-index .side-lang{
+  margin-top:18px;padding-top:13px;border-top:1px solid var(--line);
+  display:flex;gap:6px;
+}
+.sidebar-index button{
+  border:0;background:none;padding:0;font:inherit;font-size:11px;
+  color:var(--muted);cursor:pointer;
+}
+.sidebar-index button.active{color:var(--ink);font-weight:850}
+
+</style>
+</head>
+<body>
+<nav>
+<div class="wrap nav">
+  <a class="brand" href="#">YOUR NAME <span>/ ONE-PERSON PRACTICE</span></a>
+  <div class="navlinks">
+    <a href="#work"><span data-lang="zh">我能做什麼</span><span data-lang="en">Work</span></a>
+    <a href="#about"><span data-lang="zh">關於我</span><span data-lang="en">About</span></a>
+    <a href="#notes"><span data-lang="zh">筆記</span><span data-lang="en">Notes</span></a>
+    <a href="#contact"><span data-lang="zh">聯絡</span><span data-lang="en">Contact</span></a>
+    <div class="lang">
+      <button id="zhBtn" class="active" onclick="setLang('zh')">中</button>
+      <span> / </span>
+      <button id="enBtn" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</div>
+</nav>
+
+<aside class="sidebar-index" aria-label="Page index">
+  <div class="index-title">
+    <span data-lang="zh">INDEX</span><span data-lang="en">INDEX</span>
+  </div>
+  <a href="#top" data-section="top"><span>00</span><span data-lang="zh">首頁</span><span data-lang="en">Home</span></a>
+  <a href="#work" data-section="work"><span>01</span><span data-lang="zh">我能做什麼</span><span data-lang="en">Work</span></a>
+  <a href="#about" data-section="about"><span>02</span><span data-lang="zh">關於我</span><span data-lang="en">About</span></a>
+  <a href="#experience" data-section="experience"><span>03</span><span data-lang="zh">經歷</span><span data-lang="en">Experience</span></a>
+  <a href="#how" data-section="how"><span>04</span><span data-lang="zh">合作方式</span><span data-lang="en">How I work</span></a>
+  <a href="#notes" data-section="notes"><span>05</span><span data-lang="zh">筆記</span><span data-lang="en">Notes</span></a>
+  <a href="#contact" data-section="contact"><span>06</span><span data-lang="zh">聯絡</span><span data-lang="en">Contact</span></a>
+  <div class="side-lang">
+    <button id="sideZhBtn" class="active" onclick="setLang('zh')">中</button>
+    <span>/</span>
+    <button id="sideEnBtn" onclick="setLang('en')">EN</button>
+  </div>
+</aside>
+
+<main>
+<div class="wrap hero" id="top">
+  <div class="eyebrow">STRATEGY / OPERATIONS / DATA / AI</div>
+
+  <div data-lang="zh">
+    <h1>建立一個，做自己擅長工作的 One-person Practice。</h1>
+    <p>從 corporate 出發，重新探索一個人可以怎麼工作。分享我在 strategy、operations、data 與 AI 的實驗，也接受適合的 business projects。</p>
+    <div class="buttons">
+      <a class="btn primary" href="#contact">找我合作 →</a>
+      <a class="btn secondary" href="#notes">看看我在做什麼</a>
+    </div>
+  </div>
+
+  <div data-lang="en">
+    <h1>Building a one-person practice around the work I’m good at.</h1>
+    <p>After years in corporate roles, I’m exploring what good independent work can look like across strategy, operations, data and AI — while taking on a small number of business projects.</p>
+    <div class="buttons">
+      <a class="btn primary" href="#contact">Work with me →</a>
+      <a class="btn secondary" href="#notes">Read my notes</a>
+    </div>
+  </div>
+</div>
+
+<div class="introline">
+  <div class="wrap">
+    <span data-lang="zh"><strong>背景</strong> FP&A · Product Management · Strategy · Data Analysis · AI Adoption　/　<strong>目前</strong> Independent</span>
+    <span data-lang="en"><strong>Background</strong> FP&A · Product Management · Strategy · Data Analysis · AI Adoption　/　<strong>Now</strong> Independent</span>
+  </div>
+</div>
+
+<section id="work">
+<div class="wrap">
+  <div class="sectionhead">
+    <div>
+      <div class="kicker">01 / Work</div>
+      <h2 data-lang="zh">我接的不是職稱。<br>是具體的問題。</h2>
+      <h2 data-lang="en">I don’t sell a job title.<br>I help with a problem.</h2>
+    </div>
+    <p data-lang="zh">我比較適合需要一個能在不同 function 之間移動的人：理解 business、數字與 workflow，協助團隊把事情從想法推到執行。</p>
+    <p data-lang="en">I’m most useful when a problem sits between functions — where business context, numbers, people and execution all need to come together.</p>
+  </div>
+
+  <div class="services">
+    <article class="service">
+      <div class="service-num">01</div>
+      <h3 data-lang="zh">Strategy & Operations</h3>
+      <h3 data-lang="en">Strategy & Operations</h3>
+      <p data-lang="zh">年度規劃、優先順序、KPI、跨部門 project，以及 founder / leadership 的 decision support。</p>
+      <p data-lang="en">Planning, priorities, KPIs, cross-functional projects and decision support for founders or leadership teams.</p>
+      <div class="result" data-lang="zh">適合：需要 senior generalist，但還不需要 full-time hire</div>
+      <div class="result" data-lang="en">Best for: teams that need a senior generalist without a full-time hire</div>
+    </article>
+
+    <article class="service">
+      <div class="service-num">02</div>
+      <h3>Business Problem Sprint</h3>
+      <p data-lang="zh">針對一個卡住的問題，在短時間內完成 problem framing、分析、選項與 action plan。</p>
+      <p data-lang="en">A focused sprint to frame a messy problem, analyze the situation, evaluate options and leave with a practical action plan.</p>
+      <div class="result" data-lang="zh">通常 1–2 週 / 固定 scope</div>
+      <div class="result" data-lang="en">Typically 1–2 weeks / fixed scope</div>
+    </article>
+
+    <article class="service">
+      <div class="service-num">03</div>
+      <h3 data-lang="zh">Business Analytics & FP&A</h3>
+      <h3 data-lang="en">Business Analytics & FP&A</h3>
+      <p data-lang="zh">KPI、management dashboard、forecast、budget vs actual 與 scenario analysis。</p>
+      <p data-lang="en">KPI design, management dashboards, forecasting, budget vs actual and scenario analysis.</p>
+      <div class="result" data-lang="zh">把數字變成管理工具，而不只是 report</div>
+      <div class="result" data-lang="en">Turn numbers into a management tool, not just another report</div>
+    </article>
+
+    <article class="service">
+      <div class="service-num">04</div>
+      <h3 data-lang="zh">AI Workflow Design</h3>
+      <h3 data-lang="en">AI Workflow Design</h3>
+      <p data-lang="zh">從真實工作流程出發，找出值得 AI 化的地方，設計可以被團隊採用的 workflow。</p>
+      <p data-lang="en">Map real workflows, identify useful AI opportunities and design practical workflows people will actually use.</p>
+      <div class="result" data-lang="zh">不是 AI training，而是 workflow redesign</div>
+      <div class="result" data-lang="en">Not AI training — workflow redesign</div>
+    </article>
+  </div>
+</div>
+</section>
+
+<section id="about">
+<div class="wrap">
+  <div class="sectionhead">
+    <div>
+      <div class="kicker">02 / About</div>
+      <h2 data-lang="zh">我不是每件事的專家。<br>但我知道怎麼把事情串起來。</h2>
+      <h2 data-lang="en">I’m not an expert at everything.<br>I know how to connect the pieces.</h2>
+    </div>
+  </div>
+
+  <div class="about">
+    <div class="aboutmark">×</div>
+    <div class="aboutcopy">
+      <div data-lang="zh">
+        <p>我的 corporate 經歷橫跨 <strong>FP&A、Product Management、Strategy、Data Analysis 與 AI Adoption</strong>。我曾經在大型組織裡，和不同 function 一起處理 business problems。</p>
+        <p>我也很清楚，在大公司裡很多事情背後都有成熟的 team、data、system 和資源。所以我不會把自己包裝成「一個人可以取代一整個部門」。</p>
+        <p>我真正想帶出來的能力，是<strong>跨部門整合</strong>：把問題拆清楚、理解數字、跟不同 stakeholder 對齊、找到 priority，然後讓事情往前走。</p>
+        <div class="note"><strong>現在的實驗</strong>我正在建立自己的 one-person practice，同時測試一個問題：一個人配合好的 systems、AI 和工作方法，到底可以做到什麼？</div>
+      </div>
+
+      <div data-lang="en">
+        <p>My corporate background spans <strong>FP&A, Product Management, Strategy, Data Analysis and AI Adoption</strong>. I’ve worked across functions to help teams make decisions and move projects forward.</p>
+        <p>I also know the limits of corporate experience. Large companies come with teams, systems, data and resources. I’m not trying to position myself as a one-person replacement for an entire department.</p>
+        <p>What I’m good at is <strong>connecting the pieces</strong> — framing a problem, understanding the numbers, aligning stakeholders, finding priorities and helping work move forward.</p>
+        <div class="note"><strong>What I’m exploring now</strong>I’m building my own one-person practice and testing a simple question: what can one person accomplish with good systems, AI and a thoughtful way of working?</div>
+      </div>
+
+      <div class="pills">
+        <span class="pill">Strategy</span><span class="pill">Operations</span><span class="pill">FP&A</span>
+        <span class="pill">Product</span><span class="pill">Data</span><span class="pill">AI</span>
+        <span class="pill">Cross-functional</span><span class="pill">Decision Support</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="experience">
+<div class="wrap">
+  <div class="sectionhead">
+    <div>
+      <div class="kicker">03 / Selected experience</div>
+      <h2 data-lang="zh">把過去的經歷，翻譯成客戶聽得懂的成果。</h2>
+      <h2 data-lang="en">Translating corporate experience<br>into useful outcomes.</h2>
+    </div>
+    <p data-lang="zh">未來這裡會放真正的 case studies。先用能力方向建立 context，不把網站變成履歷表。</p>
+    <p data-lang="en">This section will grow into detailed case studies. For now, it gives context without turning the site into a résumé.</p>
+  </div>
+
+  <div class="experience">
+    <article class="exp">
+      <div class="label">FP&A</div>
+      <h3 data-lang="zh">從數字看 business</h3><h3 data-lang="en">Seeing the business through numbers</h3>
+      <p data-lang="zh">Forecasting、planning、performance analysis 與 management reporting。</p>
+      <p data-lang="en">Planning, forecasting, performance analysis and management reporting.</p>
+    </article>
+    <article class="exp">
+      <div class="label">PRODUCT</div>
+      <h3 data-lang="zh">把需求變成 execution</h3><h3 data-lang="en">Turning needs into execution</h3>
+      <p data-lang="zh">理解使用者、定義問題、協調不同團隊並推動 delivery。</p>
+      <p data-lang="en">Understanding needs, framing problems, coordinating teams and moving delivery forward.</p>
+    </article>
+    <article class="exp">
+      <div class="label">STRATEGY / DATA / AI</div>
+      <h3 data-lang="zh">從資訊走到決策</h3><h3 data-lang="en">Moving from information to decisions</h3>
+      <p data-lang="zh">分析、strategy work，以及探索 AI 如何進入真實工作流程。</p>
+      <p data-lang="en">Analysis, strategic work and practical exploration of AI in real workflows.</p>
+    </article>
+  </div>
+</div>
+</section>
+
+<section id="how">
+<div class="wrap">
+  <div class="sectionhead">
+    <div>
+      <div class="kicker">04 / How I work</div>
+      <h2 data-lang="zh">不用先把需求寫得很漂亮。</h2>
+      <h2 data-lang="en">You don’t need a perfect brief.</h2>
+    </div>
+    <p data-lang="zh">帶著一個真實問題來。我們先理解它，再決定什麼樣的合作方式最合理。</p>
+    <p data-lang="en">Bring a real problem. We’ll understand it first, then decide what kind of engagement actually makes sense.</p>
+  </div>
+
+  <div class="process">
+    <div class="step"><b>01 / DISCOVER</b><h3 data-lang="zh">理解現況</h3><h3 data-lang="en">Understand</h3><p data-lang="zh">目標、資料、stakeholders 與 constraints。</p><p data-lang="en">Goals, data, stakeholders and constraints.</p></div>
+    <div class="step"><b>02 / FRAME</b><h3 data-lang="zh">定義問題</h3><h3 data-lang="en">Frame</h3><p data-lang="zh">確認真正的問題與 priority。</p><p data-lang="en">Clarify the real problem and priorities.</p></div>
+    <div class="step"><b>03 / BUILD</b><h3 data-lang="zh">一起做</h3><h3 data-lang="en">Build</h3><p data-lang="zh">做出 dashboard、process、plan 或 workflow。</p><p data-lang="en">Build the dashboard, process, plan or workflow.</p></div>
+    <div class="step"><b>04 / HANDOVER</b><h3 data-lang="zh">留下來</h3><h3 data-lang="en">Hand over</h3><p data-lang="zh">讓團隊可以自己繼續。</p><p data-lang="en">Leave the team with something they can keep using.</p></div>
+  </div>
+</div>
+</section>
+
+<section id="notes">
+<div class="wrap">
+  <div class="sectionhead">
+    <div>
+      <div class="kicker">05 / Notes from building solo</div>
+      <h2 data-lang="zh">一人公司實驗室。</h2>
+      <h2 data-lang="en">Notes from building solo.</h2>
+    </div>
+    <p data-lang="zh">公開記錄我如何建立一人公司、使用 AI，以及把 corporate 經驗重新整理成自己的工作方法。</p>
+    <p data-lang="en">A public notebook on building a one-person practice, using AI, and turning corporate experience into a way of working that is my own.</p>
+  </div>
+
+  <div class="notes">
+    <article class="note-card">
+      <div class="type">SOLO BUSINESS</div>
+      <h3 data-lang="zh">離開 corporate 後，我到底可以賣什麼？</h3>
+      <h3 data-lang="en">What can I actually sell after leaving corporate?</h3>
+      <p data-lang="zh">把多年 generalist 經驗轉成客戶願意購買的 outcomes。</p>
+      <p data-lang="en">Turning years of generalist experience into outcomes people will actually pay for.</p>
+      <div class="arrow">Coming soon →</div>
+    </article>
+    <article class="note-card">
+      <div class="type">AI × WORK</div>
+      <h3 data-lang="zh">一個人如何用 AI 放大自己的工作？</h3>
+      <h3 data-lang="en">How I use AI to extend one person’s work.</h3>
+      <p data-lang="zh">Research、analysis、writing、meeting 與 decision support 的真實 workflow。</p>
+      <p data-lang="en">Real workflows for research, analysis, writing, meetings and decision support.</p>
+      <div class="arrow">Coming soon →</div>
+    </article>
+    <article class="note-card">
+      <div class="type">CORPORATE → SOLO</div>
+      <h3 data-lang="zh">大公司做過很多事，為什麼還是不敢說自己很厲害？</h3>
+      <h3 data-lang="en">Why experience doesn’t always feel like expertise.</h3>
+      <p data-lang="zh">關於 generalist 的焦慮，以及如何重新定義「專業」。</p>
+      <p data-lang="en">On the anxiety of being a generalist, and redefining what expertise means.</p>
+      <div class="arrow">Coming soon →</div>
+    </article>
+  </div>
+</div>
+</section>
+
+<section id="contact" class="cta">
+<div class="wrap">
+  <div class="kicker">06 / Contact</div>
+  <div data-lang="zh">
+    <h2>有一個事情一直卡著？可以跟我聊聊。</h2>
+    <p>不用先準備完整 brief。告訴我你在做什麼、遇到什麼問題，以及希望事情變成什麼樣子。我會先判斷這是不是適合由我協助。</p>
+    <a class="btn" href="mailto:YOUR_EMAIL@example.com">Email me →</a>
+  </div>
+  <div data-lang="en">
+    <h2>Have something you’ve been trying to figure out?</h2>
+    <p>You don’t need a polished brief. Tell me what you’re working on, what feels stuck, and what you’d like to change. I’ll tell you whether it’s something I can help with.</p>
+    <a class="btn" href="mailto:YOUR_EMAIL@example.com">Email me →</a>
+  </div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="wrap footer">
+  <span>YOUR NAME / One-person practice</span>
+  <span data-lang="zh">Strategy · Operations · Data · AI</span>
+  <span data-lang="en">Strategy · Operations · Data · AI</span>
+</div>
+</footer>
+
+<script>
+function setLang(lang){
+  document.body.classList.toggle('en', lang === 'en');
+  document.documentElement.lang = lang === 'en' ? 'en' : 'zh-Hant';
+  ['zhBtn','sideZhBtn'].forEach(id => document.getElementById(id)?.classList.toggle('active', lang === 'zh'));
+  ['enBtn','sideEnBtn'].forEach(id => document.getElementById(id)?.classList.toggle('active', lang === 'en'));
+  localStorage.setItem('siteLang', lang);
+}
+const saved = localStorage.getItem('siteLang');
+if(saved) setLang(saved);
+
+const sideLinks = [...document.querySelectorAll('.sidebar-index a[data-section]')];
+const sectionIds = sideLinks.map(a => a.dataset.section);
+const observedSections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+const observer = new IntersectionObserver((entries) => {
+  const visible = entries.filter(e => e.isIntersecting)
+                        .sort((a,b) => b.intersectionRatio - a.intersectionRatio);
+  if (visible.length) {
+    sideLinks.forEach(a => a.classList.remove('active'));
+    const current = sideLinks.find(a => a.dataset.section === visible[0].target.id);
+    if (current) current.classList.add('active');
+  }
+}, { rootMargin: "-25% 0px -55% 0px", threshold: [0, .2, .5, .8] });
+
+observedSections.forEach(s => observer.observe(s));
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY < 250) {
+    sideLinks.forEach(a => a.classList.remove('active'));
+    document.querySelector('.sidebar-index a[data-section="top"]')?.classList.add('active');
+  }
+}, {passive:true});
+
+</script>
+</body>
+</html>
