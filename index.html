@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>樂靜福有限公司｜企業營運改善服務</title>
+<meta name="description" content="樂靜福有限公司協助資源有限的小型企業，釐清財務、流程、資料與營運問題，並以可量化的商業效益評估改善專案。">
+<style>
+:root{--ink:#252b29;--muted:#68716d;--line:#dfe5df;--soft:#f3f6f1;--accent:#4f6b3c;--purple:#5b3f72;--purple-soft:#f1edf5;--white:#fff}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif}
+button{font:inherit}
+header{height:74px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 5vw;background:rgba(255,255,255,.98);position:sticky;top:0;z-index:20}
+.brand{font-weight:800;letter-spacing:.08em;font-size:16px;cursor:pointer}
+nav{display:flex;gap:5px}
+nav button{border:0;background:transparent;color:#56616b;padding:10px 13px;cursor:pointer;border-radius:5px}
+nav button:hover,nav button.active{background:var(--purple-soft);color:var(--purple)}
+.page{display:none;min-height:calc(100vh - 74px);padding:68px 8vw 60px;animation:fade .22s ease}
+.page.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.hero,.section{max-width:1100px;margin:0 auto}
+.hero{min-height:calc(100vh - 210px);display:grid;grid-template-columns:1.15fr .85fr;gap:75px;align-items:center}
+.eyebrow{font-size:12px;letter-spacing:.18em;color:var(--purple);font-weight:800;margin-bottom:18px}
+h1{font-size:clamp(34px,3.8vw,52px);line-height:1.18;letter-spacing:-.045em;margin:0 0 26px}
+h2{font-size:36px;line-height:1.25;letter-spacing:-.035em;margin:0 0 18px}
+h3{font-size:19px;margin:0 0 11px}
+.lead{font-size:17px;line-height:1.85;color:#4d5963;max-width:720px}
+.panel{background:var(--soft);padding:34px;border-left:4px solid var(--accent)}
+.panel strong{font-size:32px;line-height:1.2;display:block;margin:6px 0 10px}
+.panel p{color:var(--muted);line-height:1.75;margin:0 0 26px}
+.buttons{display:flex;gap:10px;margin-top:25px}
+.btn{padding:12px 20px;border:1px solid var(--accent);border-radius:5px;background:var(--accent);color:#fff;cursor:pointer}
+.btn.light{background:#fff;color:var(--purple);border-color:var(--purple)}
+.intro{max-width:780px;margin-bottom:40px}
+.intro p{font-size:17px;line-height:1.85;color:var(--muted)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{border:1px solid var(--line);padding:28px;background:#fff}
+.card .num{font-size:12px;color:var(--purple);font-weight:800;letter-spacing:.13em;margin-bottom:23px}
+.card p,.service p,.step p{color:#596570;line-height:1.78;margin:0}
+.value{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:38px}
+.valuebox{border:1px solid var(--line);padding:30px}
+.valuebox .big{font-size:42px;font-weight:800;color:var(--purple);margin:5px 0 12px}
+.valuebox p{color:var(--muted);line-height:1.75;margin:0}
+.case{border:1px solid var(--line);display:grid;grid-template-columns:1fr 280px;margin-bottom:18px}
+.case .text{padding:31px}
+.case .metric{background:var(--soft);display:flex;align-items:center;justify-content:center;text-align:center}
+.metric strong{font-size:54px;display:block;line-height:1;color:var(--purple)}
+.metric span{color:var(--muted);font-size:14px}
+.services{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.service{background:var(--soft);padding:27px;border-top:3px solid var(--accent)}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:34px}
+.step{border-top:2px solid var(--accent);padding:22px 16px 0}
+.step .n{font-size:12px;font-weight:800;color:var(--purple);letter-spacing:.12em;margin-bottom:15px}
+.pricing{margin-top:40px;border:1px solid var(--line);padding:34px;background:#fff}
+.pricing h3{margin-bottom:12px}
+.pricing p{color:var(--muted);line-height:1.85;margin:0}
+.timeline{max-width:900px}
+.job{display:grid;grid-template-columns:150px 1fr;gap:28px;padding:22px 0;border-bottom:1px solid var(--line)}
+.year{color:var(--muted);font-size:14px}
+.role{color:#596570;line-height:1.7;margin-top:4px}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:900px}
+.contact .box{border:1px solid var(--line);padding:28px}
+.small{font-size:12px;color:var(--muted);letter-spacing:.06em}
+footer{border-top:1px solid var(--line);padding:22px 8vw;color:#8a939c;font-size:12px}
+@media(max-width:800px){
+header{height:auto;min-height:70px;flex-direction:column;align-items:flex-start;padding:17px 5vw;gap:12px}
+nav{width:100%;overflow-x:auto}
+nav button{white-space:nowrap}
+.page{padding:48px 6vw}
+.hero,.grid3,.services,.contact,.case,.value,.steps{grid-template-columns:1fr}
+.hero{min-height:auto;gap:35px}
+.steps{gap:25px}
+.job{grid-template-columns:1fr;gap:7px}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="brand" onclick="showPage('home')">樂靜福有限公司</div>
+<nav>
+<button data-page="home" class="active">首頁</button>
+<button data-page="company">公司</button>
+<button data-page="cases">成功案例</button>
+<button data-page="services">服務方式</button>
+<button data-page="leader">負責人</button>
+<button data-page="contact">聯絡我們</button>
+</nav>
+</header>
+
+<main>
+
+<section id="home" class="page active">
+<div class="hero">
+<div>
+<div class="eyebrow">樂靜福有限公司</div>
+<h1>先了解，<br>再一起找到適合的方式。</h1>
+<p class="lead">協助資源有限的小型企業，處理財務、流程、資料與營運上的實際問題。合作前先了解企業現況、希望改善的地方與期待達成的目標，再共同討論適合的改善方式。</p>
+<div class="buttons">
+<button class="btn" onclick="showPage('services')">了解合作方式</button>
+<button class="btn light" onclick="showPage('cases')">查看實際成果</button>
+</div>
+</div>
+<div class="panel">
+<div class="eyebrow">我們重視的是</div>
+<strong>理解企業真正的需要</strong>
+<p>從企業目前的狀況、希望改善的地方與實際限制出發，先釐清問題，再一起討論適合的做法。</p>
+<div class="eyebrow">我們也關心</div>
+<strong>改善是否真正有幫助</strong>
+<p>在規劃過程中，也會一起評估時間、成本與營運效益，讓每一項投入都能帶來實際改變。</p>
+</div>
+</div>
+</section>
+
+<section id="company" class="page">
+<div class="section intro">
+<div class="eyebrow">公司</div>
+<h2>為沒有大型顧問預算的企業，提供實際可用的改善服務。</h2>
+<p>許多小型企業已經有穩定的業務與客戶，但在財務管理、流程、資料或營運上，仍會遇到需要專業協助的問題。這些問題可能很重要，卻未必值得支付大型管理顧問公司的完整專案費用。</p>
+<p>樂靜福的做法，是先了解企業現況，再聚焦真正值得處理的問題，並以可量化的改善效益作為合作判斷依據。</p>
+</div>
+<div class="grid3">
+<div class="card"><div class="num">01｜了解</div><h3>先看企業現在的狀況</h3><p>了解營運流程、財務資訊、資料來源、人工作業及目前最需要解決的問題。</p></div>
+<div class="card"><div class="num">02｜估算</div><h3>先估算可能創造的價值</h3><p>從企業期待的改善結果出發，估算可能帶來的時間、成本或營運效益。</p></div>
+<div class="card"><div class="num">03｜判斷</div><h3>值得做才投入</h3><p>在充分了解問題與期待後，再一起評估適合的投入方式與預期成果。</p></div>
+</div>
+<div class="value">
+<div class="valuebox"><div class="eyebrow">價值評估示例</div><div class="big">20%</div><p>若改善後可降低人工處理時間 20%，會進一步估算相對應的人力成本與管理效益，而不是只停留在「效率提升」的描述。</p></div>
+<div class="valuebox"><div class="eyebrow">合作判斷</div><div class="big">期待的成果</div><p>我們希望企業在合作過程中，能清楚看見問題被改善，以及這些改善對日常營運帶來的實際幫助。</p></div>
+</div>
+</section>
+
+<section id="cases" class="page">
+<div class="section intro">
+<div class="eyebrow">成功案例</div>
+<h2>能力不是用職稱證明，而是用結果證明。</h2>
+<p>以下案例依目前提供的工作素材整理。正式版本會再補充背景、負責範圍與可公開的具體資訊。</p>
+</div>
+<div class="case"><div class="text"><div class="eyebrow">資料整合</div><h3>建立統一資料來源，改善跨部門協作</h3><p>整合產品與採購追蹤資料，建立統一資料來源及部門管理儀表板，協助管理階層更快取得資訊並降低資訊落差。</p></div><div class="metric"><div><strong>50%</strong><span>組織內部摩擦降低</span></div></div></div>
+<div class="case"><div class="text"><div class="eyebrow">產品轉型</div><h3>以財務模型支持產品改善與資源配置</h3><p>建立產品轉型計畫的財務模型，支持管理階層評估並取得資源配置，讓產品改善與商業目標建立連結。</p></div><div class="metric"><div><strong>3 倍</strong><span>產品使用量提升</span></div></div></div>
+<div class="case"><div class="text"><div class="eyebrow">流程自動化</div><h3>縮短月結作業週期並降低人工錯誤</h3><p>主導跨部門改善計畫，建立自動化流程，減少人工資料整理與輸入，改善管理資訊取得速度。</p></div><div class="metric"><div><strong>50%</strong><span>月結作業週期縮短</span></div></div></div>
+<div class="case"><div class="text"><div class="eyebrow">人工智慧導入</div><h3>從導入規劃到團隊實際採用</h3><p>制定導入路徑、訓練與持續支援，推動團隊建立使用習慣，並依實際情境持續改善。</p></div><div class="metric"><div><strong>90%</strong><span>團隊導入率</span></div></div></div>
+</section>
+
+<section id="services" class="page">
+<div class="section intro">
+<div class="eyebrow">服務方式</div>
+<h2>先理解企業期待，再一起規劃適合的改善方式。</h2>
+<p>公司以月費方式提供階段性服務。合作前會先了解客戶目前的狀況、希望改善的地方與期待達成的目標，再確認適合的工作方向與預期成果。一般以三個月為一期，期滿後依實際成果與後續需求決定是否展延。</p>
+</div>
+<div class="steps">
+<div class="step"><div class="n">01｜了解</div><h3>了解現況</h3><p>了解流程、財務、資料、人力與問題背景。</p></div>
+<div class="step"><div class="n">02｜釐清</div><h3>釐清問題</h3><p>確認真正需要處理的問題，以及希望達成的改善結果。</p></div>
+<div class="step"><div class="n">03｜規劃</div><h3>討論改善方式</h3><p>依問題範圍與企業現況，安排適合的工作內容。</p></div>
+<div class="step"><div class="n">04｜執行</div><h3>三個月一期</h3><p>聚焦問題執行改善，並持續檢視進度。</p></div>
+<div class="step"><div class="n">05｜檢視</div><h3>看見實際改變</h3><p>依成果與新的需求，決定下一階段是否展延。</p></div>
+</div>
+<div class="services" style="margin-top:42px">
+<div class="service"><h3>財務與管理問題</h3><p>協助整理財務與營運資訊，釐清管理者目前看不到的問題，建立較清楚的管理方式。</p></div>
+<div class="service"><h3>流程與作業改善</h3><p>找出重複、耗時或容易出錯的工作流程，重新整理作業方式，必要時導入自動化工具。</p></div>
+<div class="service"><h3>資料整理與分析</h3><p>協助企業把分散在不同檔案或系統中的資訊整理起來，建立可供管理使用的分析與報表。</p></div>
+<div class="service"><h3>專案與產品問題</h3><p>協助釐清需求、安排優先順序與推動專案，讓改善工作不只停留在規劃階段。</p></div>
+<div class="service"><h3>人工智慧應用</h3><p>從企業實際工作流程出發，評估哪些工作適合使用人工智慧，協助規劃導入與團隊使用方式。</p></div>
+<div class="service"><h3>營運改善專案</h3><p>針對特定營運問題進行階段性改善，以三個月為一期，依成果與後續需求評估是否延續。</p></div>
+</div>
+<div class="pricing"><div class="eyebrow">收費原則</div><h3>月費制，三個月為一期</h3><p>實際月費會依問題範圍、預估工作量及所需專業程度評估。公司會先了解客戶情況與期待，再討論適合的合作內容與費用，而非先套用固定方案。</p></div>
+</section>
+
+<section id="leader" class="page">
+<div class="section intro">
+<div class="eyebrow">負責人</div>
+<h2>跨財務、產品、資料、流程與人工智慧的實務經驗。</h2>
+<p>過往跨國企業的工作經驗，累積了財務、商業、產品與營運等多面向實務能力，並將這些經驗轉化為今日服務企業的專業基礎。更重要的是，這些經驗來自實際參與企業問題的分析、改善與執行。</p>
+</div>
+<div class="grid3">
+<div class="card"><div class="num">財務與商業</div><h3>理解成本與資源配置</h3><p>從財務分析、財務控制到商業規劃，建立對企業經營數字的理解。</p></div>
+<div class="card"><div class="num">產品與營運</div><h3>把需求轉化為改善</h3><p>參與產品績效、服務模式及跨部門專案，推動實際改善。</p></div>
+<div class="card"><div class="num">資料與新技術</div><h3>讓工具產生實際價值</h3><p>運用資料分析、自動化及人工智慧改善工作流程與團隊採用。</p></div>
+</div>
+<div class="timeline" style="margin-top:42px">
+<div class="job"><div class="year">近年</div><div><strong>產品與營運管理</strong><div class="role">負責產品績效、改善與跨部門協作。</div></div></div>
+<div class="job"><div class="year">中期</div><div><strong>財務與商業規劃</strong><div class="role">參與財務營運、商業規劃、資源配置與管理決策。</div></div></div>
+<div class="job"><div class="year">早期</div><div><strong>財務分析與服務模式</strong><div class="role">從資料分析、財務管理及服務模式設計累積企業改善經驗。</div></div></div>
+</div>
+</section>
+
+<section id="contact" class="page">
+<div class="section intro">
+<div class="eyebrow">聯絡我們</div>
+<h2>先說明問題，再討論是否適合合作。</h2>
+<p>如果企業正在面臨財務、流程、資料或營運上的具體問題，可以先聯絡公司說明目前情況。公司會先了解問題，再評估是否適合進一步合作。</p>
+</div>
+<div class="contact">
+<div class="box"><div class="small">公司名稱</div><h3>樂靜福有限公司</h3></div>
+<div class="box"><div class="small">公司地址</div><h3>臺中市西區</h3><p class="small">臺灣大道二段186號24樓之3</p></div>
+<div class="box"><div class="small">服務對象</div><h3>資源有限的小型企業</h3></div>
+<div class="box"><div class="small">合作方式</div><h3>月費制｜三個月一期</h3></div>
+</div>
+</section>
+</main>
+<footer>© 2026 樂靜福有限公司｜企業營運與數位化改善服務</footer>
+<script>
+const pages=[...document.querySelectorAll('.page')],buttons=[...document.querySelectorAll('nav button')];
+function showPage(id){pages.forEach(p=>p.classList.toggle('active',p.id===id));buttons.forEach(b=>b.classList.toggle('active',b.dataset.page===id));history.replaceState(null,'','#'+id);window.scrollTo({top:0,behavior:'instant'})}
+buttons.forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
+const initial=location.hash.replace('#','');if(initial&&document.getElementById(initial))showPage(initial);
+</script>
+</body>
+</html>
